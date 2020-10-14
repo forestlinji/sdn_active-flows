@@ -12,8 +12,8 @@ def http_get(url):
 
 
 if __name__ == "__main__":
-    url = 'http://127.0.0.1:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:1/flow-node-inventory:table/0/flow/1'
+    url = 'http://127.0.0.1:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:1/flow-node-inventory:table/0'
     resp = http_get(url)
     res = json.loads(resp.text)
-    print(len(res['flow-node-inventory:flow']))
-
+    print(resp.text)
+    print(len(res['flow-node-inventory:table'][0]['flow']))
